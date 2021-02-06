@@ -17,23 +17,13 @@ const displayCountries = countries => {
         // create countryDiv under countriesDiv item 
         const countryDiv = document.createElement('div');
         
-        /** 
-        // countryDiv under h3 = country name and p = capital  
-        const h3 = document.createElement('h3');
-        h3.innerText = country.name;
-        const p = document.createElement('p');
-        p.innerText = country.capital;
-        countryDiv.appendChild(h3);
-        countryDiv.appendChild(p);
-
-        */
-
-        const countryInfo = `
-            <h3>Bangladesh</h3>
-            <p>Dhaka</p>
-        `
-
-        countryDiv.innerText = countryInfo;
+        // // countryDiv under h3 = country name and p = capital  
+        // const h3 = document.createElement('h3');
+        // h3.innerText = country.name;
+        // const p = document.createElement('p');
+        // p.innerText = country.capital;
+        // countryDiv.appendChild(h3);
+        // countryDiv.appendChild(p);
 
         
 
