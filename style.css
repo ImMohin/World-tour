@@ -17,3 +17,7 @@
     font-size: 45px;
     color: magenta;
 }
+
+#countryDetail img{
+    width: 300px;
+}

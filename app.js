@@ -8,10 +8,9 @@ const displayCountries = countries => {
     
     // read id html ul 
     const countriesDiv = document.getElementById('countries');
-    
-    // for loop diea proti ta country k access
-    for (let i = 0; i < countries.length; i++) {
-        const country = countries[i];
+    // for loop k for each diea replace 
+    countries.forEach(country => {
+        
         // console.log(country.name);
 
         // create countryDiv under countriesDiv item 
@@ -34,12 +33,38 @@ const displayCountries = countries => {
             <h3 class="country-name">${country.name}</h3>
             <p>${country.capital}</p>
             <P>${country.region}</P>
+            <button onclick="displayCountryDetail('${country.name}')">Details</button>
         `;
 
         countryDiv.innerHTML = countryInfo;
         // countriesDiv under countryDiv 
         countriesDiv.appendChild(countryDiv);
+    });
+    // // for loop diea proti ta country k access
+    // for (let i = 0; i < countries.length; i++) {
+        // const country = countries[i];
         
-    }
+    // }
     
+}
+
+const displayCountryDetail = name => {
+    // console.log(name);
+    //dynamic api call
+    const url = `https://restcountries.eu/rest/v2/name/${name}`
+    fetch(url)
+    .then(response => response.json())
+    .then(data => renderCountryInfo(data[0]));
+}
+
+const renderCountryInfo = country => {
+    // console.log(country);
+    const countryDiv = document.getElementById('countryDetail');
+    countryDiv.innerHTML = `
+        <h1>Country Name: ${country.name}</h1>
+        <p>Population: ${country.population}</p>
+        <p>Area: ${country.area}</p>
+        <P>${country.region}</P>
+        <img src="${country.flag}">
+    `
 }
