@@ -8,7 +8,7 @@ const displayCountries = countries => {
     
     // read id html ul 
     const countriesDiv = document.getElementById('countries');
-
+    
     // for loop diea proti ta country k access
     for (let i = 0; i < countries.length; i++) {
         const country = countries[i];
@@ -16,6 +16,8 @@ const displayCountries = countries => {
 
         // create countryDiv under countriesDiv item 
         const countryDiv = document.createElement('div');
+        // add class 
+        countryDiv.className = 'country';
         
         /** 
         // countryDiv under h3 = country name and p = capital  
@@ -27,16 +29,14 @@ const displayCountries = countries => {
         countryDiv.appendChild(p);
 
         */
-
+        // shortcut
         const countryInfo = `
-            <h3>Bangladesh</h3>
-            <p>Dhaka</p>
-        `
+            <h3 class="country-name">${country.name}</h3>
+            <p>${country.capital}</p>
+            <P>${country.region}</P>
+        `;
 
-        countryDiv.innerText = countryInfo;
-
-        
-
+        countryDiv.innerHTML = countryInfo;
         // countriesDiv under countryDiv 
         countriesDiv.appendChild(countryDiv);
         
